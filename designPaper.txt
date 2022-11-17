@@ -1,0 +1,56 @@
+MVC
+Stands for Model, View, Controller. It is the most popular pattern to split an application into sections that have their own purpose. 
+
+The Controller acts as a middleman between the View and Model. When the client makes a request, it goes to a specific controller for handling the request flow. When a controller receives a request, it firsts asks the model for information based on the request.
+
+The Model is responsible for handling the data logic of a request, interacting with the data source. Once the model sends its response back to the controller, the controller interacts with the View to show the user the data. 
+
+The View is dynamically rendered according to the data received. When the View sends the final presentation back to the controller, the controller then sends it to the user. This is why the View and Model never interact with each other, separating the concerns of presentation and logic of data.
+
+This has it's advantages such that it is organized and more modifiable. On the other hand, the structure in navigating the code is more complex and hard to understand with all the updates. It also requires more strict rules for methods.
+
+
+
+MVP
+Stands for Model, View, Presenter. As opposed to MVC, the Presenter layer prepares data needed for the view. An example is requesting data from a REST api, parse that data and populate TableView/CollectionView using that data.
+
+Once data is received from the network, a dictionary with JSON can be sent in a completion handler and the View controller will parse it with a presenter object that is then passed parsed values
+
+Presenter can have properties for tableView and any computation needed for the tableView cell population should be done in presenter class only. In MVC if you have done same thing then all the computation and calculation are done in View Controller.
+
+
+MVVM 
+Stands for Model, View, View Model. The View Model contains the business logic. It is similar to MVC, but is better suited to larger applications. With MVC, more features and functions can turn it into a “Massive View Controller”. This makes it hard to maintain the project, add unit testing and can cause bugs when current and future engineers need to add more features to the project.
+
+
+VIPER 
+Stands for View, Interactor, Presenter, Entity, and Router Model. It’s based on the Single Responsibility Principle which is cleaner. The View sends the actions by the user to the presenter to display back to the View. The Interactor has the business logic. Entity contains the model objects used by the Interactor. Router has the navigation logic that describes which screens should display. Although there are more files and is more complex than other patterns, it allows for more scalability and reusability through this decoupling.
+
+Controller
+Using the coordinator pattern in iOS apps lets us remove the job of app navigation from our view controllers, helping make them more manageable and more reusable, while also letting us adjust our app's flow whenever we need. It lets us decouple our view controllers so that each one doesn't know what view controller came before or comes next or even that a chain of view controllers exists.
+
+
+
+
+
+Singleton
+The singleton pattern guarantees that only one instance of a class is instantiated. It can be seen as an anti-pattern because many developers use the singleton pattern to have global access to the singleton object from anywhere in the project.
+
+Factory
+The factory pattern provides an interface for creating objects in a superclass. It's an object for creating other objects. In Swift that object will typically be a class, and will produce a concrete instance of an object. 
+
+Facade
+Is a pattern to create one simple interface to a group of other, possibly many, and usually complex, interfaces. It allows you to leave out functionality you don’t need or  specify only the functionality you need.
+
+Decorator
+The Decorator pattern is to change how a core object works without modifying its existing class implementation. This is achieved by wrapping the core object with decorators, which augment the default behavior of the core object. They enhance behaviors that already exist in the core object. Decorators share the same interface as the core object, but provide a different implementation dynamically.
+
+Adapter
+used so that an existing codebase (call it “A”) can work, without modifying the original “A” code, with other code (call it “B”) that may not be completely compatible with the existing, original codebase “A.” We create an adapter that allows “A” and “B” to work together despite their differences.
+
+Iterator
+Is a pattern that enables you to iterate over a collection of elements. The gang of four defined it as "Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation." It is so common and useful that it’s part of the swift standard library.
+
+
+Flyweight
+A pattern that saves memory and reduces the cost of creating similar objects that rely on the same immutable properties in multiple classes. You shouldn't use flyweights when you need more than one intrinsic state object. In that case, you should use the Singleton or Factory patterns to interface with the shared state instance. You can’t use a Struct or Enum with this pattern because they would automatically be copied on reference
